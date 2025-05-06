@@ -2,8 +2,14 @@ services:
   - type: web
     name: proyectoDjango
     env: python
-    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    buildCommand: |
+      pip install -r requirements.txt && 
+      python manage.py migrate &&
+      python manage.py collectstatic --noinput
     startCommand: "gunicorn mi_sitio.wsgi:application"
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: mi_sitio.settings
+      - key: DATABASE_URL
+        value: postgresql://proyectodjango_bjqo_user:AU9JfJ6ppORbuwTULOFhcocVyf3IAmpC@dpg-d0d7gqjuibrs73brafug-a.oregon-postgres.render.com/proyectodjango_bjqo
+

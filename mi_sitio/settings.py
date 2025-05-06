@@ -77,16 +77,25 @@ WSGI_APPLICATION = 'mi_sitio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'proyectoDjango',
-        'USER': 'postgres', # Usuario por defecto
-        'PASSWORD': 'Django', # Contraseña configurada durante la instalación de PostgreSQL
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://proyectodjango_bjqo_user:AU9JfJ6ppORbuwTULOFhcocVyf3IAmpC@dpg-d0d7gqjuibrs73brafug-a.oregon-postgres.render.com/proyectodjango_bjqo',
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'proyectoDjango',
+#         'USER': 'postgres', # Usuario por defecto
+#         'PASSWORD': 'Django', # Contraseña configurada durante la instalación de PostgreSQL
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
