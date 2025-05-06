@@ -1,0 +1,25 @@
+<!-- Herencia de estructura de plantilla padre -->
+{% extends 'base.html' %}
+
+<!-- Carga de recursos estáticos -->
+{% load static %}
+
+<!-- Declaración de contenido de bloque 'title' -->
+{% block title %} Mi App {% endblock %}
+
+<!-- Declaración de contenido de bloque 'extra_css' -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'mi_app/styles.css' %}">
+{% endblock %}
+
+<!-- Declaración de contenido de bloque 'extra_js' -->
+{% block extra_js %}
+    <script src="{% static 'mi_app/scripts.js' %}"></script>
+{% endblock %}
+
+<!-- Declaración de contenido de bloque 'content' -->
+{% block content %}
+     <h1>Bienvenido a la página de Inicio de la Aplicación mi_app</h1>
+{% endblock %}
+
+

@@ -1,0 +1,40 @@
+<!-- Herencia de estructura de plantilla padre -->
+{% extends 'base.html' %}
+<!-- Carga de recursos estáticos -->
+{% load static %}
+<!-- Declaración de contenido de bloque 'title' -->
+{% block title %} Mi App {% endblock %}
+<!-- Declaración de contenido de bloque 'extra_css' -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'mi_app/styles.css' %}">
+{% endblock %}
+<!-- Declaración de contenido de bloque 'extra_js' -->
+{% block extra_js %}
+    <script src="{% static 'mi_app/scripts.js' %}"></script>
+{% endblock %}
+
+<!-- Declaración de contenido de bloque 'content' -->
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre"><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad"><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    {% if resultado %}
+        <h2>Resultado:</h2>
+        <p>{{ resultado }}</p>
+    {% endif %}
+{% endblock %}
+
+
+
+
+
+
+

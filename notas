@@ -1,0 +1,40 @@
+No está funcionando el proyecto en el navegador. Este es el directorio que tengo creado:
+primerproyecto/
+    .vend/
+    mi_sitio/
+        manage.py
+        mi_sitio/
+            __init__.py
+            settings.py
+            urls.py
+            wsgi.py
+            asgi.py
+        mi_app/
+            __init__.py
+            admin.py
+            apps.py
+            models.py
+            tests.py
+            urls.py
+            views.py
+            migrations/
+            templates/
+                mi_app/
+                    index.html
+
+En primerproyecto/mi_sitio/mi_app/urls.py agregué:
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.pagina_inicio, name='index'),
+]
+
+En primerproyecto/mi_sitio/mi_app/views.py agregué:
+from django.shortcuts import render
+
+def pagina_inicio(request):
+    return render(request, 'inicio.html')
+
+Cómo hago para ver index.html?? Estoy trabajando en el puerto 8001
+

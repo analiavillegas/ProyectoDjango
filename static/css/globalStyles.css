@@ -1,0 +1,70 @@
+/* Estilos generales para todo el proyecto */
+header {
+    width: 100%;
+    height: auto;
+    padding: 10px 0px;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+header h1{
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+header ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+header ul li {
+    font-weight: bold;
+    list-style: none;
+    padding: 0px;
+    margin: 0px 20px;
+}
+header ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+footer{
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+
+.exito {
+    width: 50%;
+    height: auto;
+    margin: 20px auto;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+.error {
+    width: 50%;
+    height: auto;
+    margin: 20px auto;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}   <!-- Llamado a plantilla global -->
+{% load static %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'usuarios/styles.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'usuarios/scripts.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            {{ form.nombre.label_tag }} {{ form.nombre }}
+            {% if form.nombre.errors %}
+                <div class="error">{{ form.nombre.errors.as_text }}</div>
+            {% endif %}
+        </div>
+        <div>
+            {{ form.email.label_tag }} {{ form.email }}
+            {% if form.email.errors %}
+                <div class="error">{{ form.email.errors.as_text }}</div>
+            {% endif %}
+        </div>
+        <div>
+            {{ form.mensaje.label_tag }} {{ form.mensaje }}
+            {% if form.mensaje.errors %}
+                <div class="error">{{ form.mensaje.errors.as_text }}</div>
+            {% endif %}
+        </div>
+        <button type="submit">Enviar</button>
+
+        {% if success %}
+            <p class="success">¡Mensaje enviado con éxito!</p>
+            <h3>Datos ingresados:</h3>
+            <ul>
+                <li><strong>Nombre:</strong> {{ form_data.nombre }}</li>
+                <li><strong>Email:</strong> {{ form_data.email }}</li>
+                <li><strong>Mensaje:</strong> {{ form_data.mensaje }}</li>
+            </ul>
+        {% else %}
+            {% if errors %}
+                <div class="error">
+                    <h3>Se encontraron errores:</h3>
+                    <ul>
+                        {% for field, error_list in errors.items %}
+                            <li><strong>{{ field|capfirst }}:</strong> {{ error_list.0 }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endif %}
+
+    </form>
+{% endblock %}
+
